@@ -18,9 +18,14 @@ from django.contrib import admin
 from django.urls import path
 from rest_framework import routers
 from core import views as core_views
+from ecommerce import views as ecom_views
 from rest_framework.authtoken.views import obtain_auth_token
 
 router = routers.DefaultRouter()
+
+router.register(r'item', ecom_views.ItemViewSet, basename="Item")
+router.register(r'order', ecom_views.OrderViewSet, basename="Order")
+
 urlpatterns = router.urls
 
 urlpatterns += [
