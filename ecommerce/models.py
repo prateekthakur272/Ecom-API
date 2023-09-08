@@ -21,8 +21,7 @@ class Item(TimeStampedModel, ActivatorModel, TitleSlugDescriptionModel, Model):
         return amount
     
     def manage_stock(self, quantity):
-        new_stock = self.stock - quantity
-        self.stock = new_stock
+        self.stock -= int(quantity)
         self.save()
 
     def check_stock(self, quantity):
